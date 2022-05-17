@@ -1,3 +1,17 @@
-h1 {
-  color: red;
+:root {
+  --primaryColor: #0083fc;
+  --accentColor: #ff5533;
+}
+
+* {
+  all: unset;
+  display: revert;
+}
+
+body {
+  font-family: "Formular", sans-serif;
+  background-color: #ffffff;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-primary);
 }
