@@ -1,27 +1,26 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { Card } from "../../../types";
 import CardItem from "./CardItem/CardItem";
-import { randomArrayShuffle } from "./../../../utils/randomArray";
 import "./CardsList.css";
 
 interface Props {
-  cardList: Card[];
-  setCardList: (payload: Card[]) => void;
-  setNumberOfAttempts: (payload: number) => void;
+  cardList: Card[] | [];
+  chosenCards: Card[];
+  setChosenCards: (payload: Card[]) => void;
 }
 
-const CardsList: FC<Props> = ({ cardList, setCardList }) => {
-  useEffect(() => {
-    randomArrayShuffle(cardList);
-  });
-
-  console.log(randomArrayShuffle(cardList));
-
+const CardsList: FC<Props> = ({ cardList, chosenCards, setChosenCards }) => {
   return (
     <>
       <div className="card-list__wrapper">
         {cardList.map((item) => (
-          <CardItem key={item.id} cardItem={item} />
+          <CardItem
+            key={item.id}
+            cardItem={item}
+            cardList={cardList}
+            chosenCards={chosenCards}
+            setChosenCards={setChosenCards}
+          />
         ))}
       </div>
     </>

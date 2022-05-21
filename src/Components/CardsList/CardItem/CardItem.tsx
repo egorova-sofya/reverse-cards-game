@@ -4,15 +4,32 @@ import "./CardItem.css";
 
 interface Props {
   cardItem: Card;
+  cardList: Card[] | [];
+  chosenCards: Card[];
+  setChosenCards: (payload: Card[]) => void;
 }
 
-const CardItem: FC<Props> = ({ cardItem }) => {
+const CardItem: FC<Props> = ({
+  cardItem,
+  cardList,
+  chosenCards,
+  setChosenCards,
+}) => {
+  const cardClick = () => {
+    cardList.map((item) => {
+      if (item.id === cardItem.id) {
+        setChosenCards([...chosenCards, item]);
+      }
+    });
+  };
+
   return (
     <>
       <div
         className={`card-item__wrapper ${
           cardItem.isShowing ? "card-item__wrapper--active" : ""
         }`}
+        onClick={cardClick}
       >
         {cardItem.isShowing && (
           <img
