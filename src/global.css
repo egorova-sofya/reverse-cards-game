@@ -1,6 +1,7 @@
 :root {
   --primaryColor: #0083fc;
   --accentColor: #ff5533;
+  --gray: #e5e5e5;
 }
 
 * {
@@ -14,4 +15,10 @@ body {
   font-size: 22px;
   font-weight: 400;
   color: var(--color-primary);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
