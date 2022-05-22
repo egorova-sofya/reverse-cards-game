@@ -30,119 +30,126 @@
 //   },
 // ];
 
-// import firebase from './../src/images/Firebase-logo.png'
+import Firebase from "./../images/Firebase-logo.png";
+import Nginx from "./../images/Nginx-featured-logo.png";
+import Nodejs from "./../images/Nodejs-logo.png";
+import React from "./../images/React-logo.png";
+import Redux from "./../images/Redux-logo.png";
+import Typescript from "./../images/Typescript-logo.png";
+import Webpack from "./../images/Webpack-logo.png";
+import Webstorm from "./../images/Webstorm-logo.png";
 
 export default [
   {
     id: 1,
     title: "Firebase",
-    img: "./../../images/Firebase-logo.png",
+    img: Firebase,
     isGuessed: false,
     isShowing: true,
   },
   {
     id: 2,
     title: "Firebase",
-    img: "/images/Firebase-logo.png",
+    img: Firebase,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 3,
     title: "Nginx",
-    img: "./../../images/Nginx-featured-logo.png",
+    img: Nginx,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 4,
     title: "Nginx",
-    img: "./../../images/Nginx-featured-logo.png",
+    img: Nginx,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 5,
     title: "Nodejs",
-    img: "./../../images/Nodejs-logo.png",
+    img: Nodejs,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 6,
     title: "Nodejs",
-    img: "/images/Nodejs-logo.png",
+    img: Nodejs,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 7,
     title: "React",
-    img: "./../../images/React-logo.png",
+    img: React,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 8,
     title: "React",
-    img: "./../../images/React-logo.png",
+    img: React,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 9,
     title: "Redux",
-    img: "./../../images/Redux-logo.png",
+    img: Redux,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 10,
     title: "Redux",
-    img: "/images/Redux-logo.png",
+    img: Redux,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 11,
     title: "Typescript",
-    img: "./../../images/Typescript-logo.png",
+    img: Typescript,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 12,
     title: "Typescript",
-    img: "./../../images/Typescript-logo.png",
+    img: Typescript,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 13,
     title: "Webpack",
-    img: "./../../images/Webpack-logo.png",
+    img: Webpack,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 14,
     title: "Webpack",
-    img: "/images/Webpack-logo.png",
+    img: Webpack,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 15,
     title: "Webstorm",
-    img: "./../../images/Webstorm-logo.png",
+    img: Webstorm,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 16,
     title: "Webstorm",
-    img: "./../../images/Webstorm-logo.png",
+    img: Webstorm,
     isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
 ];
