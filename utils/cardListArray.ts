@@ -1,125 +1,44 @@
+// export default [
+//   {
+//     id: 1,
+//     title: "Firebase",
+//     img: "./../../images/Firebase-logo.png",
+//     isGuessed: false,
+//     isShowing: false,
+//   },
+//   {
+//     id: 2,
+//     title: "Firebase",
+//     img: "/images/Firebase-logo.png",
+//     isGuessed: false,
+//     isShowing: false,
+//   },
+
+//   {
+//     id: 14,
+//     title: "Nginx",
+//     img: "/images/Webpack-logo.png",
+//     isGuessed: false,
+//     isShowing: false,
+//   },
+//   {
+//     id: 15,
+//     title: "Nginx",
+//     img: "./../../images/Webstorm-logo.png",
+//     isGuessed: false,
+//     isShowing: false,
+//   },
+// ];
+
+// import firebase from './../src/images/Firebase-logo.png'
+
 export default [
   {
     id: 1,
     title: "Firebase",
     img: "./../../images/Firebase-logo.png",
     isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 2,
-    title: "Firebase",
-    img: "/images/Firebase-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 3,
-    title: "Firebase",
-    img: "./../../images/Nginx-featured-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 4,
-    title: "Firebase",
-    img: "./../../images/Nginx-featured-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 5,
-    title: "Firebase",
-    img: "./../../images/Nodejs-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 6,
-    title: "Firebase",
-    img: "/images/Nodejs-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 7,
-    title: "Firebase",
-    img: "./../../images/React-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 8,
-    title: "Firebase",
-    img: "./../../images/React-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 9,
-    title: "Firebase",
-    img: "./../../images/Redux-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 10,
-    title: "Firebase",
-    img: "/images/Redux-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 11,
-    title: "Nginx",
-    img: "./../../images/Typescript-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 12,
-    title: "Nginx",
-    img: "./../../images/Typescript-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 13,
-    title: "Nginx",
-    img: "./../../images/Webpack-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 14,
-    title: "Nginx",
-    img: "/images/Webpack-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 15,
-    title: "Nginx",
-    img: "./../../images/Webstorm-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-  {
-    id: 16,
-    title: "Firebase",
-    img: "./../../images/Webstorm-logo.png",
-    isGuessed: false,
-    isShowing: false,
-  },
-];
-
-[
-  {
-    id: 1,
-    title: "Firebase",
-    img: "./../../images/Firebase-logo.png",
-    isGuessed: false,
-    isShowing: false,
+    isShowing: true,
   },
   {
     id: 2,

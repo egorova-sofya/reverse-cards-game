@@ -16,11 +16,13 @@ const CardItem: FC<Props> = ({
   setChosenCards,
 }) => {
   const cardClick = () => {
-    cardList.map((item) => {
-      if (item.id === cardItem.id) {
-        setChosenCards([...chosenCards, item]);
-      }
-    });
+    if (!cardItem.isGuessed && chosenCards.length <= 2) {
+      cardList.map((item) => {
+        if (item.id === cardItem.id) {
+          setChosenCards([...chosenCards, item]);
+        }
+      });
+    }
   };
 
   return (
@@ -29,6 +31,11 @@ const CardItem: FC<Props> = ({
         className={`card-item__wrapper ${
           cardItem.isShowing ? "card-item__wrapper--active" : ""
         }`}
+        style={
+          cardItem.isGuessed
+            ? { opacity: 0, cursor: "default" }
+            : { opacity: 1 }
+        }
         onClick={cardClick}
       >
         {cardItem.isShowing && (

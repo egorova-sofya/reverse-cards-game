@@ -5,12 +5,18 @@ import cardListArray from "../../../utils/cardListArray";
 
 import { Card } from "./../../../types";
 import { randomArrayShuffle } from "../../../utils/randomArray";
+import InfoWindow from "../InfoWindow/InfoWindow";
 
 export const App = () => {
   const [cardList, setCardList] = useState<Card[] | []>([]);
-  const totalNumberOfAttempts = 40;
+  const totalNumberOfAttempts = 4;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
   const [chosenCards, setChosenCards] = useState<Card[] | []>([]);
+  const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
+
+  const resetAllValues = () => {
+    window.location.reload();
+  };
 
   useEffect(() => {
     setCardList(randomArrayShuffle(cardListArray));
@@ -20,29 +26,35 @@ export const App = () => {
     showCard();
     if (chosenCards.length >= 2) {
       setTimeout(() => {
-        const filteredArray = checkCardsPair(
-          chosenCards[0].title,
-          chosenCards[1].title
-        );
-        hideAllCards(filteredArray);
+        hideAllCards();
         setChosenCards([]);
-      }, 2000);
+        setNumberOfAttempts(() => numberOfAttempts + 1);
+        checkCardsPair(chosenCards[0].title, chosenCards[1].title);
+      }, 1500);
     }
   }, [chosenCards]);
 
   const checkCardsPair = (firstTitle: string, secondTitle: string) => {
     if (firstTitle === secondTitle) {
-      return cardList.filter(
-        (item) => item.title !== firstTitle || item.title !== secondTitle
+      setGuessedCardsQuantity(() => guessedCardsQuantity + 2);
+      setCardList(
+        cardList.map((item) => {
+          if (firstTitle === item.title) {
+            return {
+              ...item,
+              isGuessed: true,
+            };
+          } else {
+            return item;
+          }
+        })
       );
-    } else {
-      return cardList;
     }
   };
 
-  const hideAllCards = (filteredArray: Card[]) => {
+  const hideAllCards = () => {
     setCardList(
-      filteredArray.map((item) => {
+      cardList.map((item) => {
         return {
           ...item,
           isShowing: false,
@@ -68,13 +80,33 @@ export const App = () => {
     }
   };
 
+  const isShowingErrorWindow =
+    guessedCardsQuantity < cardList.length &&
+    totalNumberOfAttempts - numberOfAttempts === 0;
+
+  const isShowingSuccessWindow = guessedCardsQuantity === cardList.length;
+
   return (
     <>
+      {isShowingErrorWindow ? (
+        <InfoWindow
+          text={`Увы, вы проиграли. У вас закончились ходы`}
+          cb={resetAllValues}
+        />
+      ) : isShowingSuccessWindow ? (
+        <InfoWindow
+          text={`Ура, вы выиграли! Это заняло ${numberOfAttempts} ходов`}
+          cb={resetAllValues}
+        />
+      ) : (
+        <></>
+      )}
+
       <main className="container">
         <h1 className="main__title">Memory</h1>
         <div className="main__wrapper">
           <p className="main__text">
-            Сделано ходов{" "}
+            Сделано ходов
             <span className="main__accent-text">{numberOfAttempts}</span>
           </p>
           <CardsList
@@ -83,7 +115,7 @@ export const App = () => {
             setChosenCards={setChosenCards}
           />
           <p className="main__text">
-            Осталось попыток{" "}
+            Осталось попыток
             <span className="main__accent-text">
               {totalNumberOfAttempts - numberOfAttempts}
             </span>
