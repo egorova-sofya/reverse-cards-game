@@ -11,7 +11,19 @@
   background-position: center;
 }
 
+@media screen and (max-width: 576px) {
+  .card-item__wrapper {
+    height: 80px;
+    width: 80px;
+  }
+}
+
 .card-item__wrapper.card-item__wrapper--active {
   background-color: var(--gray);
   background-image: none;
+}
+
+.card-item__img {
+  max-width: 90%;
+  height: 70%;
 }

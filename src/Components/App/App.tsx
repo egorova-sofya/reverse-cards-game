@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import CardsList from "../CardsList/CardsList";
 import "./App.css";
-import cardListArray from "../../../utils/cardListArray";
+import cardListArray from "../../utils/cardListArray";
 
 import { Card } from "./../../../types";
-import { randomArrayShuffle } from "../../../utils/randomArray";
+import { randomArrayShuffle } from "../../utils/randomArray";
 import InfoWindow from "../InfoWindow/InfoWindow";
 
 export const App = () => {
   const [cardList, setCardList] = useState<Card[] | []>([]);
-  const totalNumberOfAttempts = 4;
+  const totalNumberOfAttempts = 2;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
   const [chosenCards, setChosenCards] = useState<Card[] | []>([]);
   const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
@@ -29,13 +29,17 @@ export const App = () => {
         hideAllCards();
         setChosenCards([]);
         setNumberOfAttempts(() => numberOfAttempts + 1);
-        checkCardsPair(chosenCards[0].title, chosenCards[1].title);
+        checkCardsPair(chosenCards);
       }, 1500);
     }
   }, [chosenCards]);
 
-  const checkCardsPair = (firstTitle: string, secondTitle: string) => {
-    if (firstTitle === secondTitle) {
+  const checkCardsPair = (chosenCards: Card[]) => {
+    const firstTitle = chosenCards[0].title;
+    const secondTitle = chosenCards[1].title;
+    const firstId = chosenCards[0].id;
+    const secondId = chosenCards[1].id;
+    if (firstTitle === secondTitle && firstId !== secondId) {
       setGuessedCardsQuantity(() => guessedCardsQuantity + 2);
       setCardList(
         cardList.map((item) => {
@@ -90,12 +94,12 @@ export const App = () => {
     <>
       {isShowingErrorWindow ? (
         <InfoWindow
-          text={`Увы, вы проиграли. У вас закончились ходы`}
+          text={`Увы, вы проиграли.<br>У вас закончились ходы`}
           cb={resetAllValues}
         />
       ) : isShowingSuccessWindow ? (
         <InfoWindow
-          text={`Ура, вы выиграли! Это заняло ${numberOfAttempts} ходов`}
+          text={`Ура, вы выиграли!<br>Это заняло ${numberOfAttempts} ходов`}
           cb={resetAllValues}
         />
       ) : (
@@ -105,16 +109,18 @@ export const App = () => {
       <main className="container">
         <h1 className="main__title">Memory</h1>
         <div className="main__wrapper">
-          <p className="main__text">
+          <p className="main__text main__text--attempts">
             Сделано ходов
             <span className="main__accent-text">{numberOfAttempts}</span>
           </p>
-          <CardsList
-            cardList={cardList}
-            chosenCards={chosenCards}
-            setChosenCards={setChosenCards}
-          />
-          <p className="main__text">
+          <div className="main__card-list">
+            <CardsList
+              cardList={cardList}
+              chosenCards={chosenCards}
+              setChosenCards={setChosenCards}
+            />
+          </div>
+          <p className="main__text main__text--attempts-balance">
             Осталось попыток
             <span className="main__accent-text">
               {totalNumberOfAttempts - numberOfAttempts}

@@ -1,8 +1,12 @@
 .card-list__wrapper {
   max-width: 502px;
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 14px;
+}
+
+@media screen and (max-width: 576px) {
+  .card-list__wrapper {
+    gap: 7px;
+  }
 }
