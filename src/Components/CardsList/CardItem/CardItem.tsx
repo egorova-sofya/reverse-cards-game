@@ -16,7 +16,7 @@ const CardItem: FC<Props> = ({
   setChosenCards,
 }) => {
   const cardClick = () => {
-    if (!cardItem.isGuessed && chosenCards.length <= 2) {
+    if (!cardItem.isGuessed && !cardItem.isShowing && chosenCards.length <= 2) {
       cardList.map((item) => {
         if (item.id === cardItem.id) {
           setChosenCards([...chosenCards, item]);

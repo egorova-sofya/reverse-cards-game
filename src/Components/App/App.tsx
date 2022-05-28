@@ -9,7 +9,7 @@ import InfoWindow from "../InfoWindow/InfoWindow";
 
 export const App = () => {
   const [cardList, setCardList] = useState<Card[] | []>([]);
-  const totalNumberOfAttempts = 2;
+  const totalNumberOfAttempts = 40;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
   const [chosenCards, setChosenCards] = useState<Card[] | []>([]);
   const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
@@ -55,6 +55,8 @@ export const App = () => {
       );
     }
   };
+
+  console.log(cardList);
 
   const hideAllCards = () => {
     setCardList(
