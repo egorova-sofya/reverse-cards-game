@@ -24,7 +24,7 @@ export const App = () => {
 
   useEffect(() => {
     showCard();
-    if (chosenCards.length >= 2) {
+    if (chosenCards.length === 2) {
       setTimeout(() => {
         hideAllCards();
         setChosenCards([]);
@@ -55,8 +55,6 @@ export const App = () => {
       );
     }
   };
-
-  console.log(cardList);
 
   const hideAllCards = () => {
     setCardList(
