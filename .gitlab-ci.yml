@@ -1,5 +1,4 @@
 image: node:14.17.4
-
 pages:
   stage: deploy
   before_script:
@@ -12,4 +11,3 @@ pages:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
