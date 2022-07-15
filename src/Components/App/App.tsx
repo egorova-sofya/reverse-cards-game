@@ -4,22 +4,24 @@ import "./App.css";
 import cardListArray from "../../utils/cardListArray";
 
 import { Card } from "./../../../types";
-import { randomArrayShuffle } from "../../utils/randomArray";
+import { makeCardArray } from "../../utils/randomArray";
 import InfoWindow from "../InfoWindow/InfoWindow";
 
 export const App = () => {
   const [cardList, setCardList] = useState<Card[] | []>([]);
-  const totalNumberOfAttempts = 40;
+  const totalNumberOfAttempts = 2;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
-  const [chosenCards, setChosenCards] = useState<Card[] | []>([]);
+  const [chosenCards, setChosenCards] = useState<Card[]>([]);
   const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
 
   const resetAllValues = () => {
-    window.location.reload();
+    setCardList(makeCardArray(cardListArray));
+    setNumberOfAttempts(0);
+    setGuessedCardsQuantity(0);
   };
 
   useEffect(() => {
-    setCardList(randomArrayShuffle(cardListArray));
+    setCardList(makeCardArray(cardListArray));
   }, []);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export const App = () => {
         setChosenCards([]);
         setNumberOfAttempts(() => numberOfAttempts + 1);
         checkCardsPair(chosenCards);
-      }, 1500);
+      }, 1000);
     }
   }, [chosenCards]);
 
@@ -93,15 +95,13 @@ export const App = () => {
   return (
     <>
       {isShowingErrorWindow ? (
-        <InfoWindow
-          text={`Увы, вы проиграли.<br>У вас закончились ходы`}
-          cb={resetAllValues}
-        />
+        <InfoWindow cb={resetAllValues}>
+          Увы, вы проиграли.<br></br>У вас закончились ходы
+        </InfoWindow>
       ) : isShowingSuccessWindow ? (
-        <InfoWindow
-          text={`Ура, вы выиграли!<br>Это заняло ${numberOfAttempts} ходов`}
-          cb={resetAllValues}
-        />
+        <InfoWindow cb={resetAllValues}>
+          Ура, вы выиграли!<br></br>Это заняло ${numberOfAttempts} ходов
+        </InfoWindow>
       ) : (
         <></>
       )}
