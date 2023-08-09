@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primaryColor);
+  background-color: var(--primary);
   background-image: url(./../../../images/abbreviation.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -19,7 +19,6 @@
 }
 
 .card-item__wrapper.card-item__wrapper--active {
-  background-color: var(--gray);
   background-image: none;
 }
 

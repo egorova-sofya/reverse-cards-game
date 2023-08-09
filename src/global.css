@@ -1,25 +1,43 @@
 :root {
-  --primaryColor: #0083fc;
-  --accentColor: #ff5533;
-  --gray: #e5e5e5;
+  --primary: #5c03bc;
+  --primaryLight: #c086ff;
+  --primaryExtraLight: #f4e5f0;
   --white: #ffffff;
+  --black: #0e0725;
+  --bg: #2b2443;
+  --primaryGradient: linear-gradient(
+    67deg,
+    #5c03bc 0%,
+    #e536ab 53.13%,
+    #f4e5f0 89.9%
+  );
+
+  --borderRadiusLarge: 30px;
+  --borderRadiusMedium: 10px;
 }
 
-* {
+@font-face {
+  font-family: "Barking at Stars";
+  src: local("Barking at Stars"), url("./fonts/Barking_at_Stars.otf");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat-VariableFont_wght.ttf")
+      format("ttf supports variations"),
+    url("./fonts/Montserrat-VariableFont_wght.ttf") format("ttf-variations");
+  font-weight: 100 1000;
+}
+
+*:not(svg) {
   all: unset;
   display: revert;
 }
 
 body {
-  font-family: "Formular", sans-serif;
-  background-color: #ffffff;
-  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  color: var(--color-primary);
-}
-
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
+  color: var(--white);
 }

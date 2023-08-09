@@ -8,7 +8,7 @@ import { makeCardArray } from "../../utils/randomArray";
 import InfoWindow from "../InfoWindow/InfoWindow";
 
 export const App = () => {
-  const [cardList, setCardList] = useState<Card[] | []>([]);
+  const [cardList, setCardList] = useState<Card[]>([]);
   const totalNumberOfAttempts = 2;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
   const [chosenCards, setChosenCards] = useState<Card[]>([]);
