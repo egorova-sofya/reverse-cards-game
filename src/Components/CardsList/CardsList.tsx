@@ -4,7 +4,7 @@ import CardItem from "./CardItem/CardItem";
 import "./CardsList.css";
 
 interface Props {
-  cardList: Card[] | [];
+  cardList: Card[];
   chosenCards: Card[];
   setChosenCards: (payload: Card[]) => void;
 }

@@ -1,12 +1,14 @@
 .card-item__wrapper {
-  height: 115px;
-  width: 115px;
+  height: 146px;
+  width: 146px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: var(--strokeHeight) solid var(--primaryLight);
+  border-radius: var(--borderRadiusMedium);
   background-color: var(--primary);
-  background-image: url(./../../../images/abbreviation.svg);
+  background-image: url(./../../../images/question-mark.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -20,6 +22,7 @@
 
 .card-item__wrapper.card-item__wrapper--active {
   background-image: none;
+  background-color: var(--white);
 }
 
 .card-item__img {
