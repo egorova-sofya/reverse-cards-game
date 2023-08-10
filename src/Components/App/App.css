@@ -11,10 +11,8 @@
 }
 
 .main__wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  margin-bottom: 215px;
+  padding: 0 36px;
+  padding-top: 36px;
 }
 
 @media screen and (max-width: 992px) {

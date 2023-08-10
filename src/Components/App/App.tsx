@@ -6,6 +6,7 @@ import cardListArray from "../../utils/cardListArray";
 import { Card } from "./../../../types";
 import { makeCardArray } from "../../utils/randomArray";
 import InfoWindow from "../InfoWindow/InfoWindow";
+import StatusBar from "../StatusBar/StatusBar";
 
 export const App = () => {
   const [cardList, setCardList] = useState<Card[]>([]);
@@ -126,6 +127,8 @@ export const App = () => {
               {totalNumberOfAttempts - numberOfAttempts}
             </span>
           </p>
+
+          <StatusBar />
         </div>
       </main>
     </>
