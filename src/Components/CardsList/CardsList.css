@@ -1,4 +1,15 @@
 .card-list__wrapper {
+  background-image: url("./../../images/Bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  aspect-ratio: 684/407;
+}
+
+.card-list__grid {
+  margin: auto;
   max-width: 502px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

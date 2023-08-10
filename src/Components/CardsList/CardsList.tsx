@@ -12,15 +12,17 @@ interface Props {
 const CardsList: FC<Props> = ({ cardList, chosenCards, setChosenCards }) => {
   return (
     <div className="card-list__wrapper">
-      {cardList.map((item) => (
-        <CardItem
-          key={item.id}
-          cardItem={item}
-          cardList={cardList}
-          chosenCards={chosenCards}
-          setChosenCards={setChosenCards}
-        />
-      ))}
+      <div className="card-list__grid">
+        {cardList.map((item) => (
+          <CardItem
+            key={item.id}
+            cardItem={item}
+            cardList={cardList}
+            chosenCards={chosenCards}
+            setChosenCards={setChosenCards}
+          />
+        ))}
+      </div>
     </div>
   );
 };

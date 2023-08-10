@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: var(--strokeHeight) solid var(--primaryLight);
+  outline: var(--strokeHeight) solid var(--primaryLight);
   border-radius: var(--borderRadiusMedium);
   background-color: var(--primary);
   background-image: url(./../../../images/question-mark.svg);
