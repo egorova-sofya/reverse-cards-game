@@ -108,12 +108,8 @@ export const App = () => {
       )}
 
       <main className="container">
-        <h1 className="main__title">Memory</h1>
+        <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
-          <p className="main__text main__text--attempts">
-            Сделано ходов
-            <span className="main__accent-text">{numberOfAttempts}</span>
-          </p>
           <div className="main__card-list">
             <CardsList
               cardList={cardList}
@@ -121,14 +117,11 @@ export const App = () => {
               setChosenCards={setChosenCards}
             />
           </div>
-          <p className="main__text main__text--attempts-balance">
-            Осталось попыток
-            <span className="main__accent-text">
-              {totalNumberOfAttempts - numberOfAttempts}
-            </span>
-          </p>
 
-          <StatusBar />
+          <StatusBar
+            moves={numberOfAttempts}
+            attempts={totalNumberOfAttempts - numberOfAttempts}
+          />
         </div>
       </main>
     </>

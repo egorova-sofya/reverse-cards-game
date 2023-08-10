@@ -1,13 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import desktopLogo from "./../../images/Logo-desktop.svg";
 import mobileLogo from "./../../images/Logo-mobile.svg";
 import "./StatusBar.css";
 
-const StatusBar = () => {
+interface Props {
+  attempts: number;
+  moves: number;
+}
+
+const StatusBar: FC<Props> = ({ attempts, moves }) => {
   return (
     <div className="status-bar__wrapper">
       <div className="status-bar__stats status-bar__attempts">
-        <p className="status-bar__score">10</p>
+        <p className="status-bar__score">{attempts}</p>
         <p className="status-bar__text">Attempts remaining</p>
       </div>
 
@@ -28,7 +33,7 @@ const StatusBar = () => {
       </picture>
 
       <div className="status-bar__stats status-bar__moves">
-        <p className="status-bar__score">4</p>
+        <p className="status-bar__score">{moves}</p>
         <p className="status-bar__text">Moves made</p>
       </div>
     </div>
