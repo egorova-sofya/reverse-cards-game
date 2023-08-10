@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Card } from "../../../types";
 import CardItem from "./CardItem/CardItem";
 import "./CardsList.css";
+import Button from "../Button/Button";
 
 interface Props {
   cardList: Card[];
@@ -12,6 +13,7 @@ interface Props {
 const CardsList: FC<Props> = ({ cardList, chosenCards, setChosenCards }) => {
   return (
     <div className="card-list__wrapper">
+      <Button>New game</Button>
       <div className="card-list__grid">
         {cardList.map((item) => (
           <CardItem

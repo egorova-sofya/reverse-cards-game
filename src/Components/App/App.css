@@ -1,6 +1,31 @@
 .main__wrapper {
   padding: 0 36px;
   padding-top: 36px;
+  position: relative;
+}
+
+.main__wrapper::after,
+.main__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 840px;
+  height: 800px;
+  transform: translateY(-50%) rotate(180deg);
+  background-image: url("./../../images/bg_decor.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  z-index: -9;
+}
+
+.main__wrapper::after {
+  left: 0;
+}
+
+.main__wrapper::before {
+  right: 0;
+  transform: translateY(-50%) rotate(0deg);
 }
 
 .main__card-list {
