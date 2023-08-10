@@ -1,27 +1,8 @@
 import { Card } from "../../types";
 
-type StartedArray = { title: string; img: string };
-
-const arr = [
-  {
-    title: "Firebase",
-    img: "Firebase",
-  },
-  {
-    title: "React",
-    img: "React",
-  },
-  {
-    title: "Nginx",
-    img: "Nginx",
-  },
-];
-
-export const makeCardArray = (array: StartedArray[]) => {
-  const res = array.concat(array);
-
-  const cardsArray = res.map((item) => ({
-    ...item,
+export const makeCardArray = (array: Array<string>) => {
+  const cardsArray = array.map((item) => ({
+    img: item,
     isGuessed: false,
     isShowing: false,
     id: Math.floor(Math.random() * 10000),

@@ -40,7 +40,7 @@ const CardItem: FC<Props> = ({
       <img
         className="card-item__img"
         src={cardItem.img}
-        alt={cardItem.title}
+        alt={cardItem.img}
         width={50}
         height={50}
       />

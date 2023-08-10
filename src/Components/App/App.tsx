@@ -37,15 +37,15 @@ export const App = () => {
   }, [chosenCards]);
 
   const checkCardsPair = (chosenCards: Card[]) => {
-    const firstTitle = chosenCards[0].title;
-    const secondTitle = chosenCards[1].title;
+    const firstTitle = chosenCards[0].img;
+    const secondTitle = chosenCards[1].img;
     const firstId = chosenCards[0].id;
     const secondId = chosenCards[1].id;
     if (firstTitle === secondTitle && firstId !== secondId) {
       setGuessedCardsQuantity(() => guessedCardsQuantity + 2);
       setCardList(
         cardList.map((item) => {
-          if (firstTitle === item.title) {
+          if (firstTitle === item.img) {
             return {
               ...item,
               isGuessed: true,
