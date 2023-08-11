@@ -1,4 +1,4 @@
-.card-list__wrapper {
+/* .card-list__wrapper {
   background-image: url("./../../images/Bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -6,6 +6,37 @@
   background-repeat: no-repeat;
   position: relative;
   aspect-ratio: 684/407;
+} */
+
+.card-list__wrapper {
+  position: relative;
+  background: blue;
+  width: 1368px;
+  height: 814px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.card-list__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 247px;
+  height: 114px;
+  background-image: url("./../../images/bg_part2.svg");
+  /* background-image: url("./../../images/Docker.svg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+}
+
+.topleftconcave {
+  position: absolute;
+  background: white;
+  width: 247px;
+  height: 114px;
+  border-bottom-right-radius: 0;
 }
 
 .card-list__grid {

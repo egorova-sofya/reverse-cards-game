@@ -9,15 +9,16 @@
   --primaryGradientVertical: linear-gradient(
     180deg,
     #5c03bc 0%,
-    #e536ab 53.13%,
-    #f4e5f0 89.9%
+    #e536ab 53%,
+    #f4e5f0 90%
   );
   --primaryGradientHorizontal: linear-gradient(
     67deg,
     #5c03bc 0%,
-    #e536ab 53.13%,
-    #f4e5f0 89.9%
+    #e536ab 53%,
+    #f4e5f0 97%
   );
+
   --bgGradient: linear-gradient(
     214deg,
     rgba(43, 36, 67, 0.4) 0.27%,

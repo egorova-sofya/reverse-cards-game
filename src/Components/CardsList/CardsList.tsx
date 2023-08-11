@@ -13,6 +13,9 @@ interface Props {
 const CardsList: FC<Props> = ({ cardList, chosenCards, setChosenCards }) => {
   return (
     <div className="card-list__wrapper">
+      <div className="topleftconcave"></div>
+      <div className="botleftconcave"></div>
+
       <Button>New game</Button>
       <div className="card-list__grid">
         {cardList.map((item) => (
