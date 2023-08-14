@@ -1,5 +1,8 @@
 .status-bar__wrapper {
   height: 160px;
+  max-width: 1440px;
+  margin: auto;
+  height: 16vh;
   display: flex;
   align-items: center;
   justify-content: center;

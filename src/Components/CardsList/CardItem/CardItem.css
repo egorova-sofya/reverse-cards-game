@@ -1,6 +1,11 @@
 .card-item__wrapper {
-  height: 146px;
-  width: 146px;
+  /* grid-column: ; */
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  /* max-width: 146px;
+  min-width: 46px;
+  aspect-ratio: 1/1; */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -11,13 +16,6 @@
   background-image: url(./../../../images/question-mark.svg);
   background-repeat: no-repeat;
   background-position: center;
-}
-
-@media screen and (max-width: 576px) {
-  .card-item__wrapper {
-    height: 80px;
-    width: 80px;
-  }
 }
 
 .card-item__wrapper.card-item__wrapper--active {
