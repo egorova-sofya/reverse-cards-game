@@ -1,11 +1,9 @@
 .card-item__wrapper {
-  /* grid-column: ; */
   height: 100%;
   width: 100%;
   aspect-ratio: 1/1;
   /* max-width: 146px;
-  min-width: 46px;
-  aspect-ratio: 1/1; */
+  min-width: 46px; */
   cursor: pointer;
   display: flex;
   align-items: center;

@@ -7,8 +7,9 @@
   backdrop-filter: blur(6.5px);
   border: 2px solid var(--primaryLight);
   border-radius: 30px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 700px;
+  grid-template-rows: 700px;
 }
 
 .card-list__new-game-button {
@@ -20,10 +21,9 @@
 .card-list__grid {
   padding: 56px 28px;
   display: grid;
-  /* margin: 0 auto; */
-  /* grid-template-columns: repeat(4, minmax(20px, 1fr));
-  grid-template-rows: repeat(4, minmax(20px, 1fr)); */
-  grid-template-columns: repeat(4, 146px);
-  grid-template-rows: repeat(4, 146px);
+  /* width: 674px;
+  height: 674px; */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 28px;
 }
