@@ -110,7 +110,7 @@ export const App = () => {
       <main className="container">
         <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
-          <div className="main__card-list">
+          <div className="main__content">
             <CardsList
               cardList={cardList}
               chosenCards={chosenCards}

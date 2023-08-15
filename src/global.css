@@ -30,6 +30,13 @@
   --strokeHeight: 2px;
 }
 
+@media screen and (max-width: 576px) {
+  :root {
+    --borderRadiusLarge: 15px;
+    --borderRadiusMedium: 5px;
+  }
+}
+
 @font-face {
   font-family: "Barking at Stars";
   src: local("Barking at Stars"), url("./fonts/Barking_at_Stars.otf");

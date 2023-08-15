@@ -1,9 +1,5 @@
 .card-item__wrapper {
-  height: 100%;
-  width: 100%;
-  aspect-ratio: 1/1;
-  /* max-width: 146px;
-  min-width: 46px; */
+  aspect-ratio: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -24,4 +20,22 @@
 .card-item__img {
   max-width: 90%;
   height: 70%;
+}
+
+@media screen and (max-width: 1180px) {
+  .card-item__wrapper {
+    background-size: 30px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .card-item__wrapper {
+    background-size: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-item__wrapper {
+    background-size: 10px;
+  }
 }

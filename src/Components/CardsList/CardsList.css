@@ -1,29 +1,71 @@
 .card-list__wrapper {
-  height: 80vh;
   max-width: 1440px;
   margin: auto;
   position: relative;
   background: var(--bgGradient);
   backdrop-filter: blur(6.5px);
   border: 2px solid var(--primaryLight);
-  border-radius: 30px;
+  border-radius: var(--borderRadiusLarge);
+
   display: grid;
   grid-template-columns: 700px;
-  grid-template-rows: 700px;
+  justify-content: center;
+}
+
+.card-list__wrapper::after {
+  content: "";
+  position: absolute;
+  z-index: -99;
+  top: -3px;
+  left: -2.8px;
+  width: 250px;
+  height: 140px;
+  background-image: url("./../../images/concave-corner.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top left;
 }
 
 .card-list__new-game-button {
   position: absolute;
-  top: 56px;
-  left: 28px;
+  top: 0px;
+  left: 0px;
 }
 
 .card-list__grid {
   padding: 56px 28px;
   display: grid;
-  /* width: 674px;
-  height: 674px; */
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   gap: 28px;
+}
+
+@media screen and (max-width: 1180px) {
+  .card-list__wrapper {
+    grid-template-columns: 500px;
+  }
+  .card-list__grid {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .card-list__wrapper {
+    grid-template-columns: 350px;
+  }
+
+  .card-list__wrapper::after {
+    width: 170px;
+    height: 81px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-list__wrapper {
+    grid-template-columns: 250px;
+  }
+
+  .card-list__wrapper::after {
+    width: 110px;
+    height: 52px;
+  }
 }

@@ -1,6 +1,6 @@
 .container {
-  min-height: 100vh;
-  max-height: 1024;
+  height: 100vh;
+  min-width: 300px;
 }
 
 .container::after,
@@ -29,10 +29,10 @@
 
 .main__wrapper {
   padding: 0 36px;
-  padding-top: 36px;
+  padding-top: 12px;
   position: relative;
-}
-
-.main__card-list {
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 1024px;
 }
