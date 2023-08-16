@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  max-height: 100vh;
   min-width: 300px;
 }
 
@@ -34,5 +34,5 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-height: 1024px;
+  max-height: 1200px;
 }

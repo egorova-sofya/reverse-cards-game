@@ -2,7 +2,6 @@
   height: 160px;
   max-width: 1440px;
   margin-top: auto;
-  height: 16vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,4 +44,38 @@
 
 .status-bar__text {
   font-size: 22px;
+  padding: 0 12px;
+}
+
+.status-bar__logo-style {
+  width: 175px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .status-bar__score {
+    font-size: 44px;
+  }
+
+  .status-bar__text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .status-bar__score {
+    font-size: 32px;
+  }
+
+  .status-bar__text {
+    font-size: 14px;
+    padding: 0 4px;
+  }
+
+  .status-bar__logo-style {
+    width: 81px;
+    height: 38px;
+  }
 }

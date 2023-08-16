@@ -16,17 +16,18 @@ const StatusBar: FC<Props> = ({ attempts, moves }) => {
         <p className="status-bar__text">Attempts remaining</p>
       </div>
 
-      <picture>
+      <picture className="status-bar__logo-style">
         <source
           width="436"
           height="57"
-          media="(min-width: 650px)"
+          media="(min-width: 992px)"
           srcSet={desktopLogo}
         />
+
         <source
           width="175"
           height="58"
-          media="(min-width: 465px)"
+          media="(max-width: 992px)"
           srcSet={mobileLogo}
         />
         <img src={desktopLogo} alt="Game logo" />
