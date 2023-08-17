@@ -1,15 +1,14 @@
 .status-bar__wrapper {
   height: 160px;
-  max-width: 1440px;
-  margin-top: auto;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
+  align-items: center;
   gap: 5%;
-  border-radius: var(--borderRadiusLarge) var(--borderRadiusLarge) 0px 0px;
-  border-top: 2px solid var(--primaryLight);
-  border-right: 2px solid var(--primaryLight);
-  border-left: 2px solid var(--primaryLight);
+  border-radius: var(--borderRadiusLarge);
+  border: 2px solid var(--primaryLight);
   background: var(--bgGradient);
   backdrop-filter: blur(6.5px);
 }
@@ -47,13 +46,6 @@
   padding: 0 12px;
 }
 
-.status-bar__logo-style {
-  width: 175px;
-  height: 58px;
-  display: flex;
-  align-items: center;
-}
-
 @media screen and (max-width: 992px) {
   .status-bar__score {
     font-size: 44px;
@@ -71,11 +63,5 @@
 
   .status-bar__text {
     font-size: 14px;
-    padding: 0 4px;
-  }
-
-  .status-bar__logo-style {
-    width: 81px;
-    height: 38px;
   }
 }

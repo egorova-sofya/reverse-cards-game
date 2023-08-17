@@ -28,14 +28,8 @@
   }
 }
 
-@media screen and (max-width: 992px) {
-  .card-item__wrapper {
-    background-size: 15px;
-  }
-}
-
 @media screen and (max-width: 576px) {
   .card-item__wrapper {
-    background-size: 10px;
+    background-size: 20px;
   }
 }

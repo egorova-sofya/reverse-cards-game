@@ -18,6 +18,12 @@ const StatusBar: FC<Props> = ({ attempts, moves }) => {
 
       <picture className="status-bar__logo-style">
         <source
+          width="17"
+          height="15"
+          media="(max-width: 576px)"
+          srcSet={mobileLogo}
+        />
+        <source
           width="436"
           height="57"
           media="(min-width: 992px)"
@@ -30,6 +36,7 @@ const StatusBar: FC<Props> = ({ attempts, moves }) => {
           media="(max-width: 992px)"
           srcSet={mobileLogo}
         />
+
         <img src={desktopLogo} alt="Game logo" />
       </picture>
 
