@@ -1,11 +1,9 @@
 .card-list__wrapper {
-  margin: auto;
   position: relative;
   background: var(--bgGradient);
   backdrop-filter: blur(6.5px);
   border: 2px solid var(--primaryLight);
   border-radius: var(--borderRadiusLarge);
-
   display: grid;
   grid-template-columns: 500px;
   justify-content: center;

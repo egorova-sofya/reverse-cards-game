@@ -16,7 +16,6 @@
 .status-bar__stats {
   text-align: center;
   position: relative;
-  flex-grow: 1;
 }
 
 .status-bar__attempts::before,

@@ -3,12 +3,14 @@ import CardsList from "../CardsList/CardsList";
 import "./App.css";
 import cardListArray from "../../utils/cardListArray";
 
-import { Card } from "./../../../types";
+import { Card, Level } from "./../../../types";
 import { makeCardArray } from "../../utils/randomArray";
 import InfoWindow from "../InfoWindow/InfoWindow";
 import StatusBar from "../StatusBar/StatusBar";
+import StartScreen from "../StartScreen/StartScreen";
 
 export const App = () => {
+  const [level, setLevel] = useState<Level>("easy");
   const [cardList, setCardList] = useState<Card[]>([]);
   const totalNumberOfAttempts = 2;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
@@ -111,11 +113,13 @@ export const App = () => {
         <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
           <div className="main__content">
-            <CardsList
+            {/* <CardsList
               cardList={cardList}
               chosenCards={chosenCards}
               setChosenCards={setChosenCards}
-            />
+            /> */}
+
+            <StartScreen level={level} changeLevel={setLevel} />
           </div>
 
           <StatusBar

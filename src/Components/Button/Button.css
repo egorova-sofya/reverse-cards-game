@@ -5,6 +5,7 @@
   color: var(--white);
   font-size: 25px;
   font-weight: 700;
+  text-align: center;
 }
 
 .button:focus-visible {

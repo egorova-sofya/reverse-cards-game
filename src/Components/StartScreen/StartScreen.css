@@ -1,0 +1,20 @@
+.start-screen__wrapper {
+  position: relative;
+  background: var(--bgGradient);
+  backdrop-filter: blur(6.5px);
+  border: 2px solid var(--primaryLight);
+  border-radius: var(--borderRadiusLarge);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-screen__title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.start-screen__button {
+  max-width: 284px;
+}

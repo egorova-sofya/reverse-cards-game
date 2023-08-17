@@ -4,3 +4,5 @@ export interface Card {
   isGuessed: boolean;
   isShowing: boolean;
 }
+
+export type Level = "easy" | "medium" | "hard";
