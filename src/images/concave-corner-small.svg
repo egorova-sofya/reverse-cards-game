@@ -1,5 +1,5 @@
-<svg preserveAspectRatio="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 274 127" ><defs><style>.cls-1{fill:#c086ff;}.cls-2{fill:#0e0725;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1">
+<svg preserveAspectRatio="none" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 254 127" ><defs><style>.cls-1{fill:#c086ff;}.cls-2{fill:#0e0725;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1">
 <path class="cls-1" d="M228.55,32V57.83a29,29,0,0,1-29,29H32a31,31,0,0,0-31,31V127H3v-9.17a29,29,0,0,1,29-29H199.55a31,31,0,0,0,31-31V32a29,29,0,0,1,29-29H274V1H259.55A31,31,0,0,0,228.55,32Z"
-
+stroke="#c086ff" stroke-width="4px"
 />
 <path class="cls-2" d="M0,0V127H1v-9.17a31,31,0,0,1,31-31H199.55a29,29,0,0,0,29-29V32a31,31,0,0,1,31-31H274V0Z"/></g></g></svg>

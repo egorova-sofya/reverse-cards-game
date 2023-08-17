@@ -65,7 +65,10 @@
   }
 
   .card-list__wrapper::after {
+    background-image: url("./../../images/concave-corner-small.svg");
+
     width: 110px;
     height: 52px;
+    stroke-width: 10px;
   }
 }

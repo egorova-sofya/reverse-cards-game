@@ -14,6 +14,7 @@ const CardsList: FC<Props> = ({ cardList, chosenCards, setChosenCards }) => {
   return (
     <div className="card-list__wrapper">
       <Button className="card-list__new-game-button">New game</Button>
+
       <div className="card-list__grid">
         {cardList.map((item) => (
           <CardItem
