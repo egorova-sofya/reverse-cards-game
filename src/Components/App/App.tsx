@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardsList from "../CardsList/CardsList";
 import "./App.css";
-import cardListArray from "../../utils/cardListArray";
+import cardListArray from "../../utils/cards";
 
 import { Card, Level } from "./../../../types";
 import { makeCardArray } from "../../utils/randomArray";

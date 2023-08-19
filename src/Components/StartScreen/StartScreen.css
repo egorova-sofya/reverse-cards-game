@@ -1,4 +1,5 @@
 .start-screen__wrapper {
+  min-height: 70vh;
   position: relative;
   background: var(--bgGradient);
   backdrop-filter: blur(6.5px);
