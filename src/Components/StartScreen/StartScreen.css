@@ -18,4 +18,7 @@
 
 .start-screen__button {
   max-width: 284px;
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 20px;
 }

@@ -13,7 +13,6 @@ const StartScreen: FC<Props> = ({ level, changeLevel }) => {
   return (
     <div className="start-screen__wrapper">
       <h2 className="start-screen__title">Choose difficulty</h2>
-      {level}
       <LevelsCarousel />
       <Button className="start-screen__button">Start game</Button>
     </div>
