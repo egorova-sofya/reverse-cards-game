@@ -26,24 +26,23 @@ const CardItem: FC<Props> = ({
   };
 
   return (
-    <div
-      className={`card-item__wrapper ${
-        cardItem.isShowing ? "card-item__wrapper--active" : ""
-      }`}
-      style={
-        cardItem.isGuessed ? { opacity: 0, cursor: "default" } : { opacity: 1 }
-      }
-      onClick={cardClick}
-    >
-      {cardItem.isShowing && (
-        <img
-          className="card-item__img"
-          src={cardItem.img}
-          alt={cardItem.img}
-          width={50}
-          height={50}
-        />
-      )}
+    <div className="card-item__wrapper" onClick={cardClick}>
+      <div
+        className={`card-item-inner ${
+          cardItem.isShowing ? "card-item__wrapper--active" : ""
+        }`}
+      >
+        <div className="card-item-front"></div>
+        <div className="card-item-back">
+          <img
+            className="card-item__img"
+            src={cardItem.img}
+            alt={cardItem.img}
+            width={50}
+            height={50}
+          />
+        </div>
+      </div>
     </div>
   );
 };

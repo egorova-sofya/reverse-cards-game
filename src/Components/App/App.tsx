@@ -12,7 +12,7 @@ import StartScreen from "../StartScreen/StartScreen";
 export const App = () => {
   const [level, setLevel] = useState<Level>("easy");
   const [cardList, setCardList] = useState<Card[]>([]);
-  const totalNumberOfAttempts = 2;
+  const totalNumberOfAttempts = 10;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
   const [chosenCards, setChosenCards] = useState<Card[]>([]);
   const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
