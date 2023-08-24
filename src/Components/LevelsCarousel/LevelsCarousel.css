@@ -20,11 +20,11 @@
 }
 
 .levels-carousel__next-button {
-  transform: translateY(-50%) rotate(180deg);
+  right: 0;
 }
 
 .levels-carousel__prev-button {
-  right: 0;
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .levels-carousel__content-wrapper {

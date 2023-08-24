@@ -14,26 +14,28 @@ const LevelsCarousel = () => {
         showStatus={false}
         showIndicators={false}
         width="100%"
-        renderArrowPrev={(clickHandler, hasPrev) =>
+        renderArrowPrev={(onClickHandler, hasPrev, label) =>
           hasPrev && (
             <button
               className="levels-carousel__button levels-carousel__prev-button"
-              onClick={clickHandler}
+              onClick={onClickHandler}
+              title={label}
             ></button>
           )
         }
-        renderArrowNext={(clickHandler, hasNext) =>
+        renderArrowNext={(onClickHandler, hasNext, label) =>
           hasNext && (
             <button
               className="levels-carousel__button levels-carousel__next-button"
-              onClick={clickHandler}
+              onClick={onClickHandler}
+              title={label}
             ></button>
           )
         }
       >
         {levels.map((item) => {
           return (
-            <div className="levels-carousel__content-wrapper">
+            <div className="levels-carousel__content-wrapper" key={item.level}>
               <div
                 className="levels-carousel__card-wrapper"
                 style={{
@@ -41,13 +43,11 @@ const LevelsCarousel = () => {
                   gridTemplateRows: `repeat(${item.rows}, 40px)`,
                 }}
               >
-                {Array.from(Array(item.columns * item.rows).keys()).map(
-                  (card) => (
-                    <div className="levels-carousel__card"></div>
-                  )
-                )}
+                {Array.from(Array(item.columns * item.rows).keys()).map(() => (
+                  <div className="levels-carousel__card"></div>
+                ))}
               </div>
-              <p className="levels-carousel__level-title"> {item.level}</p>
+              <p className="levels-carousel__level-title">{item.level}</p>
             </div>
           );
         })}
