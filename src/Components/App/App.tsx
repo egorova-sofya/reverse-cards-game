@@ -97,29 +97,24 @@ export const App = () => {
 
   return (
     <>
-      {isShowingErrorWindow ? (
-        <InfoWindow cb={resetAllValues}>
-          Увы, вы проиграли.<br></br>У вас закончились ходы
-        </InfoWindow>
-      ) : isShowingSuccessWindow ? (
-        <InfoWindow cb={resetAllValues}>
-          Ура, вы выиграли!<br></br>Это заняло ${numberOfAttempts} ходов
-        </InfoWindow>
-      ) : (
-        <></>
-      )}
-
       <main className="container">
         <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
           <div className="main__content">
-            <CardsList
+            {isShowingErrorWindow ? (
+              <InfoWindow cb={resetAllValues} gameResult="lose" />
+            ) : isShowingSuccessWindow ? (
+              <InfoWindow cb={resetAllValues} gameResult="win" />
+            ) : (
+              <></>
+            )}
+            {/* <CardsList
               cardList={cardList}
               chosenCards={chosenCards}
               setChosenCards={setChosenCards}
-            />
+            /> */}
 
-            {/* <StartScreen level={level} changeLevel={setLevel} /> */}
+            <StartScreen level={level} changeLevel={setLevel} />
           </div>
 
           <StatusBar
