@@ -14,6 +14,12 @@
   outline-offset: 4px;
 }
 
+.button:hover {
+  animation: gradient-animation 3s linear 1;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+
 @media screen and (max-width: 992px) {
   .button {
     font-size: 15px;

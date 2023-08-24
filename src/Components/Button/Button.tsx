@@ -22,7 +22,7 @@ const Button: FC<Props> = ({
     <button
       {...props}
       onClick={isLoading ? undefined : props?.onClick}
-      className={`button ${className}`}
+      className={`button  ${className}`}
     >
       {children}
     </button>
