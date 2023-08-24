@@ -39,6 +39,8 @@
 
 .card-item-back {
   background-color: var(--white);
+  border-radius: var(--borderRadiusMedium);
+
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
@@ -46,8 +48,8 @@
 }
 
 .card-item__img {
-  max-width: 85%;
-  max-height: 85%;
+  max-width: 70%;
+  max-height: 70%;
 }
 
 @media screen and (max-width: 1180px) {

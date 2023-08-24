@@ -15,7 +15,7 @@
 }
 
 .button:hover {
-  animation: gradient-animation 3s linear 1;
+  animation: gradient-animation 3s linear infinite;
   animation-delay: 0.3s;
   animation-fill-mode: forwards;
 }

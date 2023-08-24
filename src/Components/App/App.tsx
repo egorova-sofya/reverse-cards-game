@@ -108,13 +108,13 @@ export const App = () => {
             ) : (
               <></>
             )}
-            {/* <CardsList
+            <CardsList
               cardList={cardList}
               chosenCards={chosenCards}
               setChosenCards={setChosenCards}
-            /> */}
+            />
 
-            <StartScreen level={level} changeLevel={setLevel} />
+            {/* <StartScreen level={level} changeLevel={setLevel} /> */}
           </div>
 
           <StatusBar

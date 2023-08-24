@@ -67,14 +67,7 @@
   }
 }
 
-@media screen and (min-width: 2200px) {
-  .container::after,
-  .container::before {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1500px), (min-width: 2200px) {
   .container::after {
     display: none;
   }
@@ -86,6 +79,11 @@
     right: 50%;
     aspect-ratio: 1;
     transform: translateX(50%) rotate(-90deg);
+  }
+}
+@media screen and (min-width: 2200px) {
+  .container::before {
+    width: 50%;
   }
 }
 
