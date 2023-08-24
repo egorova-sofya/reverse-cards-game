@@ -23,8 +23,6 @@ const Button: FC<Props> = ({
       {...props}
       onClick={isLoading ? undefined : props?.onClick}
       className={`button ${className}`}
-
-      // loading={isLoading}
     >
       {children}
     </button>

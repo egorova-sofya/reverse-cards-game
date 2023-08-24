@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Card } from "../../../types";
 import CardItem from "./CardItem/CardItem";
-import "./CardsList.css";
 import Button from "../Button/Button";
+import "./CardsList.css";
 
 interface Props {
   cardList: Card[];

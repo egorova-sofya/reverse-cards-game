@@ -34,13 +34,11 @@ const LevelsCarousel = () => {
         {levels.map((item) => {
           return (
             <div className="levels-carousel__content-wrapper">
-              {item.level}
               <div
+                className="levels-carousel__card-wrapper"
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: `repeat(${item.columns}, 1fr)`,
-                  gridTemplateRows: `repeat(${item.rows}, 1fr)`,
-                  gap: "10px",
+                  gridTemplateColumns: `repeat(${item.columns}, 40px)`,
+                  gridTemplateRows: `repeat(${item.rows}, 40px)`,
                 }}
               >
                 {Array.from(Array(item.columns * item.rows).keys()).map(
@@ -49,6 +47,7 @@ const LevelsCarousel = () => {
                   )
                 )}
               </div>
+              <p className="levels-carousel__level-title"> {item.level}</p>
             </div>
           );
         })}

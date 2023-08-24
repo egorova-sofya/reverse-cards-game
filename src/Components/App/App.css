@@ -3,7 +3,6 @@
   min-width: 360px;
   max-width: 1440px;
   margin: auto;
-  padding-top: 8px;
 }
 
 .container::after,
@@ -40,6 +39,22 @@
   justify-content: center;
   align-items: start;
   gap: 12px;
+}
+
+.main__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 267px;
+  height: 20px;
+  background-color: var(--black);
+}
+
+@media screen and (max-width: 992px) {
+  .main__wrapper::before {
+    width: 188px;
+  }
 }
 
 @media screen and (max-width: 576px) {

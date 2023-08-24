@@ -113,13 +113,13 @@ export const App = () => {
         <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
           <div className="main__content">
-            {/* <CardsList
+            <CardsList
               cardList={cardList}
               chosenCards={chosenCards}
               setChosenCards={setChosenCards}
-            /> */}
+            />
 
-            <StartScreen level={level} changeLevel={setLevel} />
+            {/* <StartScreen level={level} changeLevel={setLevel} /> */}
           </div>
 
           <StatusBar
