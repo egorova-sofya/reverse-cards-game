@@ -3,11 +3,25 @@ import { Carousel } from "react-responsive-carousel";
 import "./LevelsCarousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import levels from "../../utils/levels";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../app/store";
+import { setLevel } from "../../app/commonSlice";
 
 const LevelsCarousel = () => {
+  const level = useSelector((state: RootState) => state.commonSlice.level);
+  const dispatch = useDispatch();
+
+  const selectedLevelIndex = levels.map((item) => item.level).indexOf(level);
+
+  const handleCarouselChange = (index: number) => {
+    dispatch(setLevel(levels[index].level));
+  };
+
   return (
     <div className="levels-carousel__wrapper">
       <Carousel
+        onChange={handleCarouselChange}
+        selectedItem={selectedLevelIndex}
         emulateTouch={true}
         infiniteLoop={true}
         showThumbs={false}

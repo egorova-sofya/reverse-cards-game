@@ -11,12 +11,12 @@ import StartScreen from "../StartScreen/StartScreen";
 import { withSplashScreen } from "../withSplashScreen/withSplashScreen";
 
 const App = () => {
-  const [level, setLevel] = useState<Level>("easy");
   const [cardList, setCardList] = useState<Card[]>([]);
   const totalNumberOfAttempts = 10;
   const [numberOfAttempts, setNumberOfAttempts] = useState(0);
   const [chosenCards, setChosenCards] = useState<Card[]>([]);
   const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
+  const [showStartScreen, setShowStartScreen] = useState(true);
 
   const resetAllValues = () => {
     setCardList(makeCardArray(cardListArray));
@@ -109,13 +109,14 @@ const App = () => {
             ) : (
               <></>
             )}
-            <CardsList
-              cardList={cardList}
-              chosenCards={chosenCards}
-              setChosenCards={setChosenCards}
-            />
-
-            {/* <StartScreen level={level} changeLevel={setLevel} /> */}
+            {showStartScreen && <StartScreen />}
+            {!showStartScreen && (
+              <CardsList
+                cardList={cardList}
+                chosenCards={chosenCards}
+                setChosenCards={setChosenCards}
+              />
+            )}
           </div>
 
           <StatusBar
@@ -128,4 +129,5 @@ const App = () => {
   );
 };
 
-export default withSplashScreen(App);
+// export default withSplashScreen(App);
+export default App;
