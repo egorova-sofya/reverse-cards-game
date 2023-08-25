@@ -9,6 +9,5 @@ export type Level = "easy" | "medium" | "hard";
 
 export interface CardsLevelInfo {
   level: Level;
-  rows: number;
-  columns: number;
+  columnQuantity: number;
 }

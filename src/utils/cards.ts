@@ -34,6 +34,6 @@ export default [
   redux,
   Sass,
   TS,
-  // VsCode,
-  // Webpack,
+  VsCode,
+  Webpack,
 ];

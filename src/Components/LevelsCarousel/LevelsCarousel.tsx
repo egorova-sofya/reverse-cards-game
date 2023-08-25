@@ -11,10 +11,12 @@ const LevelsCarousel = () => {
   const level = useSelector((state: RootState) => state.commonSlice.level);
   const dispatch = useDispatch();
 
-  const selectedLevelIndex = levels.map((item) => item.level).indexOf(level);
+  const selectedLevelIndex = levels
+    .map((item) => item.level)
+    .indexOf(level.level);
 
   const handleCarouselChange = (index: number) => {
-    dispatch(setLevel(levels[index].level));
+    dispatch(setLevel(levels[index]));
   };
 
   return (
@@ -48,18 +50,21 @@ const LevelsCarousel = () => {
         }
       >
         {levels.map((item) => {
+          const columnQuantity = item.columnQuantity;
           return (
             <div className="levels-carousel__content-wrapper" key={item.level}>
               <div
                 className="levels-carousel__card-wrapper"
                 style={{
-                  gridTemplateColumns: `repeat(${item.columns}, 40px)`,
-                  gridTemplateRows: `repeat(${item.rows}, 40px)`,
+                  gridTemplateColumns: `repeat(${columnQuantity}, 40px)`,
+                  gridTemplateRows: `repeat(${columnQuantity}, 40px)`,
                 }}
               >
-                {Array.from(Array(item.columns * item.rows).keys()).map(() => (
-                  <div className="levels-carousel__card"></div>
-                ))}
+                {Array.from(Array(columnQuantity * columnQuantity).keys()).map(
+                  () => (
+                    <div className="levels-carousel__card"></div>
+                  )
+                )}
               </div>
               <p className="levels-carousel__level-title">{item.level}</p>
             </div>

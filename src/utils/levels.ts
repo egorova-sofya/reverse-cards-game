@@ -3,17 +3,14 @@ import { CardsLevelInfo } from "../../types";
 export default [
   {
     level: "easy",
-    rows: 4,
-    columns: 4,
+    columnQuantity: 2,
   },
   {
     level: "medium",
-    rows: 5,
-    columns: 5,
+    columnQuantity: 4,
   },
   {
     level: "hard",
-    rows: 6,
-    columns: 6,
+    columnQuantity: 6,
   },
 ] as Array<CardsLevelInfo>;
