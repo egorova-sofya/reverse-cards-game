@@ -1,0 +1,22 @@
+.splash-screen__wrapper {
+  height: 100vh;
+  background-image: url("./../../images/welcomeImg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0;
+  animation: fade-in 1s linear;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  transition: all;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -8,8 +8,9 @@ import { makeCardArray } from "../../utils/randomArray";
 import InfoWindow from "../InfoWindow/InfoWindow";
 import StatusBar from "../StatusBar/StatusBar";
 import StartScreen from "../StartScreen/StartScreen";
+import { withSplashScreen } from "../withSplashScreen/withSplashScreen";
 
-export const App = () => {
+const App = () => {
   const [level, setLevel] = useState<Level>("easy");
   const [cardList, setCardList] = useState<Card[]>([]);
   const totalNumberOfAttempts = 10;
@@ -126,3 +127,5 @@ export const App = () => {
     </>
   );
 };
+
+export default withSplashScreen(App);
