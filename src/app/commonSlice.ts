@@ -32,10 +32,11 @@ export const commonSlice = createSlice({
     setLevel: (state, action: PayloadAction<CardsLevelInfo>) => {
       state.level = action.payload;
     },
+
     setChosenCards: (state, action: PayloadAction<Card>) => {
       state.chosenCards = [...state.chosenCards, action.payload];
     },
-    //6*6/2
+
     setCardsQuantity: (state, action: PayloadAction<number>) => {
       const newArr = [...state.initialCards];
       state.initialCards = newArr.splice(
@@ -55,12 +56,46 @@ export const commonSlice = createSlice({
 
     duplicateCards: (state) => {
       const newArr = [...state.finalCards];
-      state.finalCards = newArr.flatMap((i) => [i, i]);
+      state.finalCards = newArr.flatMap((i) => [
+        i,
+        { ...i, id: Math.floor(Math.random() * 10000) },
+      ]);
     },
 
     mixCards: (state) => {
+      // const newArr = [...state.finalCards];
+      // state.finalCards = randomArrayShuffle(newArr);
+    },
+
+    choseCard: (state, action: PayloadAction<Card>) => {
       const newArr = [...state.finalCards];
-      state.finalCards = randomArrayShuffle(newArr);
+
+      const chosenCardQuantity = state.finalCards.filter(
+        (item) => item.isShowing
+      );
+
+      if (chosenCardQuantity.length < 2) {
+        state.finalCards = newArr.map((item) => {
+          if (item.id === action.payload.id) {
+            return { ...action.payload, isShowing: true };
+          }
+          return item;
+        });
+      }
+    },
+
+    checkChosenCards: (state) => {
+      const newArr = [...state.finalCards];
+
+      if (
+        state.chosenCards.length == 2 &&
+        state.chosenCards[0].img == state.chosenCards[1].img
+      ) {
+        state.finalCards = newArr.filter(
+          (item) => item.img !== state.chosenCards[0].img
+        );
+        state.chosenCards = [];
+      }
     },
   },
 });
@@ -72,6 +107,8 @@ export const {
   makeCardObjectArray,
   duplicateCards,
   mixCards,
+  choseCard,
+  checkChosenCards,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

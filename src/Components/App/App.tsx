@@ -49,6 +49,8 @@ const App = () => {
       const savedLevelObject = levels.find((item) => item.level == savedLevel);
       savedLevelObject && dispatch(setLevel(savedLevelObject));
     }
+
+    onGameStarted();
   }, []);
 
   // const resetAllValues = () => {
@@ -56,10 +58,6 @@ const App = () => {
   //   setNumberOfAttempts(0);
   //   setGuessedCardsQuantity(0);
   // };
-
-  // useEffect(() => {
-  //   setCardList(makeCardArray(cardListArray));
-  // }, []);
 
   // useEffect(() => {
   //   showCard();
@@ -142,8 +140,9 @@ const App = () => {
             ) : (
               <></>
             )} */}
-            {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
-            {!showStartScreen && <CardsList />}
+            {/* {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
+            {!showStartScreen && <CardsList />} */}
+            <CardsList />
           </div>
 
           <StatusBar
