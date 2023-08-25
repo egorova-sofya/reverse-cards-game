@@ -91,9 +91,17 @@ export const commonSlice = createSlice({
         state.chosenCards.length == 2 &&
         state.chosenCards[0].img == state.chosenCards[1].img
       ) {
-        state.finalCards = newArr.filter(
-          (item) => item.img !== state.chosenCards[0].img
-        );
+        state.finalCards = newArr.map((item) => {
+          if (item.img == state.chosenCards[0].img) {
+            return { ...item, isGuessed: true, isShowing: false };
+          }
+          return item;
+        });
+        state.chosenCards = [];
+      } else if (state.chosenCards.length == 2) {
+        state.finalCards = newArr.map((item) => {
+          return { ...item, isShowing: false };
+        });
         state.chosenCards = [];
       }
     },

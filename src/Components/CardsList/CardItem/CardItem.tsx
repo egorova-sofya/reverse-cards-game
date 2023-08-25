@@ -31,11 +31,18 @@ const CardItem: FC<Props> = ({ cardItem, cards }) => {
   };
 
   return (
-    <div className="card-item__wrapper" onClick={cardClick}>
+    <div
+      className={`card-item__wrapper ${
+        cardItem.isGuessed ? "card-item__wrapper--guessed" : ""
+      }`}
+      onClick={cardClick}
+    >
       <div
         className={`card-item-inner ${
-          cardItem.isShowing ? "card-item__wrapper--active" : ""
-        }`}
+          cardItem.isShowing || cardItem.isGuessed
+            ? "card-item__wrapper--active"
+            : ""
+        } `}
       >
         <div className="card-item-front"></div>
         <div className="card-item-back">
