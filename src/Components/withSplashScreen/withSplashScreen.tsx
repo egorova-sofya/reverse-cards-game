@@ -33,10 +33,7 @@ export function withSplashScreen(WrappedComponent: React.ComponentType) {
         barkingAtStarsFont.load().then(() => setBarkingAtStarsLoaded(true));
 
         const montserratFont = new FontFace("Montserrat", `url(${Montserrat})`);
-        montserratFont.load().then(() => {
-          console.log("Font loaded");
-          setMontserratLoaded(true);
-        });
+        montserratFont.load().then(() => setMontserratLoaded(true));
 
         const timer = setTimeout(() => {
           setTimePassed(true);

@@ -4,11 +4,13 @@ import initialCards from "./../utils/cards";
 import levels from "./../utils/levels";
 
 const initialState = {
-  level: levels[0],
+  level: levels[1],
   levels: levels,
   initialCards: initialCards,
   finalCards: [] as Card[],
   chosenCards: [] as Card[],
+  numberOfAttempts: 0,
+  numberOfMoves: 0,
 };
 
 const randomArrayShuffle = (array: Card[]) => {
@@ -105,6 +107,16 @@ export const commonSlice = createSlice({
         state.chosenCards = [];
       }
     },
+
+    setNumberOfAttempts: (state, action: PayloadAction<number>) => {
+      state.numberOfAttempts = action.payload;
+    },
+    decreaseNumberOfAttempts: (state) => {
+      state.numberOfAttempts = --state.numberOfAttempts;
+    },
+    increaseNumberOfMoves: (state) => {
+      state.numberOfMoves = ++state.numberOfMoves;
+    },
   },
 });
 
@@ -117,6 +129,9 @@ export const {
   mixCards,
   choseCard,
   checkChosenCards,
+  setNumberOfAttempts,
+  decreaseNumberOfAttempts,
+  increaseNumberOfMoves,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

@@ -61,8 +61,8 @@ const LevelsCarousel = () => {
                 }}
               >
                 {Array.from(Array(columnQuantity * columnQuantity).keys()).map(
-                  () => (
-                    <div className="levels-carousel__card"></div>
+                  (item) => (
+                    <div className="levels-carousel__card" key={item}></div>
                   )
                 )}
               </div>

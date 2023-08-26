@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Card } from "../../../../types";
 import "./CardItem.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,15 +7,13 @@ import {
   checkChosenCards,
   choseCard,
   setChosenCards,
-  // setChosenCards
 } from "../../../app/commonSlice";
 
 interface Props {
-  cardItem: Card;
-  cards: Card[];
+  card: Card;
 }
 
-const CardItem: FC<Props> = ({ cardItem, cards }) => {
+const CardItem: FC<Props> = ({ card }) => {
   const chosenCards = useSelector(
     (state: RootState) => state.commonSlice.chosenCards
   );
@@ -23,33 +21,40 @@ const CardItem: FC<Props> = ({ cardItem, cards }) => {
   const dispatch = useDispatch();
 
   const cardClick = () => {
-    dispatch(choseCard(cardItem));
-    dispatch(setChosenCards(cardItem));
-    setTimeout(() => {
-      dispatch(checkChosenCards());
-    }, 2500);
+    dispatch(choseCard(card));
+    dispatch(setChosenCards(card));
   };
+
+  useEffect(() => {
+    if (chosenCards.length == 2 && chosenCards[0].img == chosenCards[1].img) {
+      setTimeout(() => {
+        dispatch(checkChosenCards());
+      }, 100);
+    } else {
+      setTimeout(() => {
+        dispatch(checkChosenCards());
+      }, 5000);
+    }
+  }, [chosenCards]);
 
   return (
     <div
       className={`card-item__wrapper ${
-        cardItem.isGuessed ? "card-item__wrapper--guessed" : ""
+        card.isGuessed ? "card-item__wrapper--guessed" : ""
       }`}
       onClick={cardClick}
     >
       <div
         className={`card-item-inner ${
-          cardItem.isShowing || cardItem.isGuessed
-            ? "card-item__wrapper--active"
-            : ""
+          card.isShowing || card.isGuessed ? "card-item__wrapper--active" : ""
         } `}
       >
         <div className="card-item-front"></div>
         <div className="card-item-back">
           <img
             className="card-item__img"
-            src={cardItem.img}
-            alt={cardItem.img}
+            src={card.img}
+            alt={card.img}
             width={50}
             height={50}
           />

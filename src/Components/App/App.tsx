@@ -10,24 +10,30 @@ import { withSplashScreen } from "../withSplashScreen/withSplashScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import {
+  decreaseNumberOfAttempts,
   duplicateCards,
+  increaseNumberOfMoves,
   makeCardObjectArray,
   mixCards,
   setCardsQuantity,
   setLevel,
+  setNumberOfAttempts,
 } from "../../app/commonSlice";
 
 const App = () => {
-  const [cardList, setCardList] = useState<Card[]>([]);
-  const totalNumberOfAttempts = 10;
-  const [numberOfAttempts, setNumberOfAttempts] = useState(0);
-  const [chosenCards, setChosenCards] = useState<Card[]>([]);
-  const [guessedCardsQuantity, setGuessedCardsQuantity] = useState(0);
   const [showStartScreen, setShowStartScreen] = useState(true);
 
   const level = useSelector((state: RootState) => state.commonSlice.level);
   const levels = useSelector((state: RootState) => state.commonSlice.levels);
-
+  const chosenCards = useSelector(
+    (state: RootState) => state.commonSlice.chosenCards
+  );
+  const numberOfAttempts = useSelector(
+    (state: RootState) => state.commonSlice.numberOfAttempts
+  );
+  const finalCards = useSelector(
+    (state: RootState) => state.commonSlice.finalCards
+  );
   const dispatch = useDispatch();
 
   const createCardArray = () => {
@@ -35,6 +41,11 @@ const App = () => {
     dispatch(makeCardObjectArray());
     dispatch(duplicateCards());
     dispatch(mixCards());
+    dispatch(
+      setNumberOfAttempts(
+        Math.pow(level.columnQuantity, 2) + level.columnQuantity
+      )
+    );
   };
 
   const onGameStarted = () => {
@@ -50,82 +61,32 @@ const App = () => {
       savedLevelObject && dispatch(setLevel(savedLevelObject));
     }
 
-    onGameStarted();
+    //delete later
+    // onGameStarted();
   }, []);
 
   // const resetAllValues = () => {
   //   setCardList(makeCardArray(cardListArray));
-  //   setNumberOfAttempts(0);
+  //   setAttemptsRemaining(0);
   //   setGuessedCardsQuantity(0);
   // };
 
-  // useEffect(() => {
-  //   showCard();
-  //   if (chosenCards.length === 2) {
-  //     setTimeout(() => {
-  //       hideAllCards();
-  //       setChosenCards([]);
-  //       setNumberOfAttempts(() => numberOfAttempts + 1);
-  //       checkCardsPair(chosenCards);
-  //     }, 1000);
-  //   }
-  // }, [chosenCards]);
+  const onMoveMade = () => {
+    dispatch(decreaseNumberOfAttempts());
+    dispatch(increaseNumberOfMoves());
+  };
 
-  // const checkCardsPair = (chosenCards: Card[]) => {
-  //   const firstTitle = chosenCards[0].img;
-  //   const secondTitle = chosenCards[1].img;
-  //   const firstId = chosenCards[0].id;
-  //   const secondId = chosenCards[1].id;
-  //   if (firstTitle === secondTitle && firstId !== secondId) {
-  //     setGuessedCardsQuantity(() => guessedCardsQuantity + 2);
-  //     setCardList(
-  //       cardList.map((item) => {
-  //         if (firstTitle === item.img) {
-  //           return {
-  //             ...item,
-  //             isGuessed: true,
-  //           };
-  //         } else {
-  //           return item;
-  //         }
-  //       })
-  //     );
-  //   }
-  // };
+  useEffect(() => {
+    if (chosenCards.length == 2) {
+      setTimeout(() => {
+        onMoveMade();
+      }, 100);
+    }
+  }, [chosenCards]);
 
-  // const hideAllCards = () => {
-  //   setCardList(
-  //     cardList.map((item) => {
-  //       return {
-  //         ...item,
-  //         isShowing: false,
-  //       };
-  //     })
-  //   );
-  // };
+  const showLoseWindow = finalCards.length > 0 && numberOfAttempts == 0;
 
-  // const showCard = () => {
-  //   if (chosenCards.length <= 2 && chosenCards.length > 0) {
-  //     setCardList(
-  //       cardList.map((item) => {
-  //         if (item.id === chosenCards[chosenCards.length - 1].id) {
-  //           return {
-  //             ...item,
-  //             isShowing: !item.isShowing,
-  //           };
-  //         } else {
-  //           return item;
-  //         }
-  //       })
-  //     );
-  //   }
-  // };
-
-  const isShowingErrorWindow =
-    guessedCardsQuantity < cardList.length &&
-    totalNumberOfAttempts - numberOfAttempts === 0;
-
-  const isShowingSuccessWindow = guessedCardsQuantity === cardList.length;
+  const showWinWindow = finalCards.length == 0;
 
   return (
     <>
@@ -133,22 +94,19 @@ const App = () => {
         <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
           <div className="main__content">
-            {/* {isShowingErrorWindow ? (
+            {/* {showLoseWindow ? (
               <InfoWindow cb={resetAllValues} gameResult="lose" />
-            ) : isShowingSuccessWindow ? (
+            ) : showWinWindow ? (
               <InfoWindow cb={resetAllValues} gameResult="win" />
             ) : (
               <></>
             )} */}
-            {/* {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
-            {!showStartScreen && <CardsList />} */}
-            <CardsList />
+            {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
+            {!showStartScreen && <CardsList />}
+            {/* <CardsList /> */}
           </div>
 
-          <StatusBar
-            moves={numberOfAttempts}
-            attempts={totalNumberOfAttempts - numberOfAttempts}
-          />
+          <StatusBar />
         </div>
       </main>
     </>
