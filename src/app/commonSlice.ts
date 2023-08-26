@@ -31,6 +31,8 @@ export const commonSlice = createSlice({
   name: "common",
   initialState,
   reducers: {
+    resetState: () => initialState,
+
     setLevel: (state, action: PayloadAction<CardsLevelInfo>) => {
       state.level = action.payload;
     },
@@ -121,6 +123,7 @@ export const commonSlice = createSlice({
 });
 
 export const {
+  resetState,
   setLevel,
   setChosenCards,
   setCardsQuantity,

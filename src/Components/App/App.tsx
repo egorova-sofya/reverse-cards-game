@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardsList from "../CardsList/CardsList";
 import "./App.css";
-import cardListArray from "../../utils/cards";
-import { Card, CardsLevelInfo, Level } from "./../../../types";
 import InfoWindow from "../InfoWindow/InfoWindow";
 import StatusBar from "../StatusBar/StatusBar";
 import StartScreen from "../StartScreen/StartScreen";
@@ -10,11 +8,13 @@ import { withSplashScreen } from "../withSplashScreen/withSplashScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import {
+  checkChosenCards,
   decreaseNumberOfAttempts,
   duplicateCards,
   increaseNumberOfMoves,
   makeCardObjectArray,
   mixCards,
+  resetState,
   setCardsQuantity,
   setLevel,
   setNumberOfAttempts,
@@ -60,16 +60,12 @@ const App = () => {
       const savedLevelObject = levels.find((item) => item.level == savedLevel);
       savedLevelObject && dispatch(setLevel(savedLevelObject));
     }
-
-    //delete later
-    // onGameStarted();
   }, []);
 
-  // const resetAllValues = () => {
-  //   setCardList(makeCardArray(cardListArray));
-  //   setAttemptsRemaining(0);
-  //   setGuessedCardsQuantity(0);
-  // };
+  const resetAllValues = () => {
+    setShowStartScreen(true);
+    dispatch(resetState());
+  };
 
   const onMoveMade = () => {
     dispatch(decreaseNumberOfAttempts());
@@ -82,11 +78,22 @@ const App = () => {
         onMoveMade();
       }, 100);
     }
+
+    if (chosenCards.length == 2 && chosenCards[0].img == chosenCards[1].img) {
+      setTimeout(() => {
+        dispatch(checkChosenCards());
+      }, 100);
+    } else {
+      setTimeout(() => {
+        dispatch(checkChosenCards());
+      }, 5000);
+    }
   }, [chosenCards]);
 
-  const showLoseWindow = finalCards.length > 0 && numberOfAttempts == 0;
+  const showLoseWindow =
+    finalCards.length > 0 && numberOfAttempts == 0 && !showStartScreen;
 
-  const showWinWindow = finalCards.length == 0;
+  const showWinWindow = finalCards.length == 0 && !showStartScreen;
 
   return (
     <>
@@ -94,16 +101,15 @@ const App = () => {
         <h1 className="visually-hidden">Memory game</h1>
         <div className="main__wrapper">
           <div className="main__content">
-            {/* {showLoseWindow ? (
+            {showLoseWindow ? (
               <InfoWindow cb={resetAllValues} gameResult="lose" />
             ) : showWinWindow ? (
               <InfoWindow cb={resetAllValues} gameResult="win" />
             ) : (
               <></>
-            )} */}
+            )}
             {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
             {!showStartScreen && <CardsList />}
-            {/* <CardsList /> */}
           </div>
 
           <StatusBar />
