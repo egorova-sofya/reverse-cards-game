@@ -83,17 +83,22 @@ const App = () => {
       setTimeout(() => {
         dispatch(checkChosenCards());
       }, 100);
-    } else {
+    } else if (chosenCards.length == 2) {
       setTimeout(() => {
         dispatch(checkChosenCards());
       }, 5000);
     }
   }, [chosenCards]);
 
-  const showLoseWindow =
-    finalCards.length > 0 && numberOfAttempts == 0 && !showStartScreen;
+  const notGuessingCardsQuantity = finalCards.filter((item) => !item.isGuessed);
 
-  const showWinWindow = finalCards.length == 0 && !showStartScreen;
+  const showLoseWindow =
+    notGuessingCardsQuantity.length > 0 &&
+    numberOfAttempts == 0 &&
+    !showStartScreen;
+
+  const showWinWindow =
+    notGuessingCardsQuantity.length == 0 && !showStartScreen;
 
   return (
     <>
@@ -109,10 +114,10 @@ const App = () => {
               <></>
             )}
             {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
-            {!showStartScreen && <CardsList />}
+            {!showStartScreen && <CardsList startNewGame={resetAllValues} />}
           </div>
 
-          <StatusBar />
+          <StatusBar showStatistics={!showStartScreen} />
         </div>
       </main>
     </>

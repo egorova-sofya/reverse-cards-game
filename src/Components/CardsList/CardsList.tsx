@@ -5,13 +5,19 @@ import "./CardsList.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
-const CardsList: FC = () => {
+interface Props {
+  startNewGame: () => void;
+}
+
+const CardsList: FC<Props> = ({ startNewGame }) => {
   const cards = useSelector((state: RootState) => state.commonSlice.finalCards);
   const level = useSelector((state: RootState) => state.commonSlice.level);
 
   return (
     <div className="card-list__wrapper">
-      <Button className="card-list__new-game-button">New game</Button>
+      <Button onClick={startNewGame} className="card-list__new-game-button">
+        New game
+      </Button>
 
       <div
         className="card-list__grid"

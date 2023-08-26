@@ -5,7 +5,11 @@ import "./StatusBar.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
-const StatusBar: FC = () => {
+interface Props {
+  showStatistics: boolean;
+}
+
+const StatusBar: FC<Props> = ({ showStatistics }) => {
   const numberOfAttempts = useSelector(
     (state: RootState) => state.commonSlice.numberOfAttempts
   );
@@ -14,12 +18,14 @@ const StatusBar: FC = () => {
   );
   return (
     <div className="status-bar__wrapper">
-      <div className="status-bar__stats status-bar__attempts">
-        <p className="status-bar__score">{numberOfAttempts}</p>
-        <p className="status-bar__text">Attempts remaining</p>
-      </div>
+      {showStatistics && (
+        <div className="status-bar__stats status-bar__attempts">
+          <p className="status-bar__score">{numberOfAttempts}</p>
+          <p className="status-bar__text">Attempts remaining</p>
+        </div>
+      )}
 
-      <picture className="status-bar__logo-style">
+      <picture className="status-bar__logo">
         <source
           width="17"
           height="15"
@@ -43,10 +49,12 @@ const StatusBar: FC = () => {
         <img src={desktopLogo} alt="Game logo" />
       </picture>
 
-      <div className="status-bar__stats status-bar__moves">
-        <p className="status-bar__score">{numberOfMoves}</p>
-        <p className="status-bar__text">Moves made</p>
-      </div>
+      {showStatistics && (
+        <div className="status-bar__stats status-bar__moves">
+          <p className="status-bar__score">{numberOfMoves}</p>
+          <p className="status-bar__text">Moves made</p>
+        </div>
+      )}
     </div>
   );
 };

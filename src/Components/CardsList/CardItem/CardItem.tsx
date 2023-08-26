@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { Card } from "../../../../types";
 import "./CardItem.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { choseCard, setChosenCards } from "../../../app/commonSlice";
+import { RootState } from "../../../app/store";
 
 interface Props {
   card: Card;
@@ -10,10 +11,15 @@ interface Props {
 
 const CardItem: FC<Props> = ({ card }) => {
   const dispatch = useDispatch();
+  const chosenCards = useSelector(
+    (state: RootState) => state.commonSlice.chosenCards
+  );
 
   const cardClick = () => {
-    dispatch(choseCard(card));
-    dispatch(setChosenCards(card));
+    if (chosenCards.length < 2) {
+      dispatch(choseCard(card));
+      dispatch(setChosenCards(card));
+    }
   };
 
   return (
