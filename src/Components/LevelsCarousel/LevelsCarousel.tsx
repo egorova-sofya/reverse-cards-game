@@ -56,8 +56,8 @@ const LevelsCarousel = () => {
               <div
                 className="levels-carousel__card-wrapper"
                 style={{
-                  gridTemplateColumns: `repeat(${columnQuantity}, 40px)`,
-                  gridTemplateRows: `repeat(${columnQuantity}, 40px)`,
+                  gridTemplateColumns: `repeat(${columnQuantity}, 1fr)`,
+                  gridTemplateRows: `repeat(${columnQuantity}, 1fr)`,
                 }}
               >
                 {Array.from(Array(columnQuantity * columnQuantity).keys()).map(

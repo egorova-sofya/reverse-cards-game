@@ -29,10 +29,10 @@
 
 .levels-carousel__content-wrapper {
   min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr 60px;
+
   gap: 16px;
 }
 
@@ -51,6 +51,7 @@
 .levels-carousel__level-title {
   font-family: "Barking at Stars";
   font-size: 52px;
+  margin-top: auto;
 }
 
 /* override carousel styles */

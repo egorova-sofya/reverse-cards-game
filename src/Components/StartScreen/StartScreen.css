@@ -14,11 +14,12 @@
 .start-screen__title {
   font-size: 40px;
   font-weight: 700;
+  margin-bottom: 52px;
 }
 
 .start-screen__button {
   max-width: 284px;
-  margin-top: 20px;
+  margin-top: 80px;
   padding: 12px 30px;
   font-size: 20px;
 }
