@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import "./CardsList.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import CircularProgress from "../CircularProgress/CircularProgress";
 
 interface Props {
   startNewGame: () => void;
@@ -18,7 +19,7 @@ const CardsList: FC<Props> = ({ startNewGame }) => {
       <Button onClick={startNewGame} className="card-list__new-game-button">
         New game
       </Button>
-
+      <CircularProgress value={100} className="card-list__circular-progress" />
       <div
         className="card-list__grid"
         style={{ gridTemplateColumns: `repeat(${level.columnQuantity}, 1fr)` }}

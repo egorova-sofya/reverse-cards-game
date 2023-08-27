@@ -52,7 +52,7 @@
   font-weight: 100 1000;
 }
 
-*:not(svg) {
+*:not(svg *) {
   all: unset;
   display: revert;
 }

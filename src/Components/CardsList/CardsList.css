@@ -29,6 +29,12 @@
   left: 0px;
 }
 
+.card-list__circular-progress {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
 .card-list__grid {
   padding: 56px 28px;
   display: grid;

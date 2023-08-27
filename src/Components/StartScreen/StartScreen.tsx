@@ -12,6 +12,7 @@ const StartScreen: FC<Props> = ({ onGameStarted }) => {
   return (
     <div className="start-screen__wrapper">
       <h2 className="start-screen__title">Choose difficulty</h2>
+
       <LevelsCarousel />
       <Button onClick={onGameStarted} className="start-screen__button">
         Start game

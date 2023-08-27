@@ -1,5 +1,6 @@
 .card-item__wrapper {
   perspective: 1000px;
+  user-select: none;
 }
 
 .card-item-inner {
