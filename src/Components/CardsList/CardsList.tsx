@@ -8,9 +8,11 @@ import CircularProgress from "../CircularProgress/CircularProgress";
 
 interface Props {
   startNewGame: () => void;
+  waitingTime: number;
+  loadMove: boolean;
 }
 
-const CardsList: FC<Props> = ({ startNewGame }) => {
+const CardsList: FC<Props> = ({ startNewGame, waitingTime, loadMove }) => {
   const cards = useSelector((state: RootState) => state.commonSlice.finalCards);
   const level = useSelector((state: RootState) => state.commonSlice.level);
 
@@ -19,7 +21,13 @@ const CardsList: FC<Props> = ({ startNewGame }) => {
       <Button onClick={startNewGame} className="card-list__new-game-button">
         New game
       </Button>
-      <CircularProgress value={100} className="card-list__circular-progress" />
+      {loadMove && (
+        <CircularProgress
+          value={waitingTime}
+          className="card-list__circular-progress"
+        />
+      )}
+
       <div
         className="card-list__grid"
         style={{ gridTemplateColumns: `repeat(${level.columnQuantity}, 1fr)` }}

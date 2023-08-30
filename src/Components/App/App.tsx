@@ -22,6 +22,8 @@ import {
 
 const App = () => {
   const [showStartScreen, setShowStartScreen] = useState(true);
+  const [loadMove, setLoadMove] = useState(false);
+  const waitingTime = 5000;
 
   const level = useSelector((state: RootState) => state.commonSlice.level);
   const levels = useSelector((state: RootState) => state.commonSlice.levels);
@@ -68,6 +70,7 @@ const App = () => {
   };
 
   const onMoveMade = () => {
+    setLoadMove(true);
     dispatch(decreaseNumberOfAttempts());
     dispatch(increaseNumberOfMoves());
   };
@@ -86,7 +89,8 @@ const App = () => {
     } else if (chosenCards.length == 2) {
       setTimeout(() => {
         dispatch(checkChosenCards());
-      }, 5000);
+        setLoadMove(false);
+      }, waitingTime);
     }
   }, [chosenCards]);
 
@@ -114,7 +118,13 @@ const App = () => {
               <></>
             )}
             {showStartScreen && <StartScreen onGameStarted={onGameStarted} />}
-            {!showStartScreen && <CardsList startNewGame={resetAllValues} />}
+            {!showStartScreen && (
+              <CardsList
+                loadMove={loadMove}
+                waitingTime={waitingTime}
+                startNewGame={resetAllValues}
+              />
+            )}
           </div>
 
           <StatusBar showStatistics={!showStartScreen} />

@@ -6,14 +6,8 @@ interface Props
 }
 
 const CircularProgress: FC<Props> = ({ value, ...props }) => {
-  const percentOfCircleFilling = 250 - 250 * value * 0.01;
-
-  const style = {
-    "--circle-shift": percentOfCircleFilling,
-  } as React.CSSProperties;
-
   return (
-    <div style={style} {...props}>
+    <div {...props}>
       <svg
         className="progress__svg"
         width="80"
@@ -30,6 +24,7 @@ const CircularProgress: FC<Props> = ({ value, ...props }) => {
         </defs>
         <circle
           className="progress__circle"
+          style={{ animation: `grow ${value}ms linear forwards` }}
           cx="40"
           cy="40"
           r="30"
