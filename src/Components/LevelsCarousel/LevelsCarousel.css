@@ -58,3 +58,13 @@
 .carousel-slider {
   height: 300px !important;
 }
+
+@media screen and (max-width: 576px) {
+  .levels-carousel__wrapper {
+    max-width: 330px;
+  }
+
+  .levels-carousel__button {
+    display: none;
+  }
+}

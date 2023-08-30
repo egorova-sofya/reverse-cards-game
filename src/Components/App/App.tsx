@@ -16,17 +16,15 @@ import {
   mixCards,
   resetState,
   setCardsQuantity,
-  setLevel,
   setNumberOfAttempts,
 } from "../../app/commonSlice";
 
 const App = () => {
   const [showStartScreen, setShowStartScreen] = useState(true);
   const [loadMove, setLoadMove] = useState(false);
-  const waitingTime = 5000;
+  const waitingTime = 4000;
 
   const level = useSelector((state: RootState) => state.commonSlice.level);
-  const levels = useSelector((state: RootState) => state.commonSlice.levels);
   const chosenCards = useSelector(
     (state: RootState) => state.commonSlice.chosenCards
   );
@@ -51,18 +49,9 @@ const App = () => {
   };
 
   const onGameStarted = () => {
-    localStorage.setItem("level", level.level);
     setShowStartScreen(false);
     createCardArray();
   };
-
-  useEffect(() => {
-    const savedLevel = localStorage.getItem("level");
-    if (savedLevel) {
-      const savedLevelObject = levels.find((item) => item.level == savedLevel);
-      savedLevelObject && dispatch(setLevel(savedLevelObject));
-    }
-  }, []);
 
   const resetAllValues = () => {
     setShowStartScreen(true);
@@ -70,7 +59,6 @@ const App = () => {
   };
 
   const onMoveMade = () => {
-    setLoadMove(true);
     dispatch(decreaseNumberOfAttempts());
     dispatch(increaseNumberOfMoves());
   };
@@ -85,8 +73,9 @@ const App = () => {
     if (chosenCards.length == 2 && chosenCards[0].img == chosenCards[1].img) {
       setTimeout(() => {
         dispatch(checkChosenCards());
-      }, 100);
+      }, 500);
     } else if (chosenCards.length == 2) {
+      setLoadMove(true);
       setTimeout(() => {
         dispatch(checkChosenCards());
         setLoadMove(false);
