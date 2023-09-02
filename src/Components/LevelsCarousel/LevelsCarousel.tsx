@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "./LevelsCarousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -7,7 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { setLevel } from "../../app/commonSlice";
 
-const LevelsCarousel = () => {
+interface Props {
+  onGameStarted: () => void;
+}
+
+const LevelsCarousel: FC<Props> = ({ onGameStarted }) => {
   const level = useSelector((state: RootState) => state.commonSlice.level);
   const dispatch = useDispatch();
 
@@ -23,6 +27,7 @@ const LevelsCarousel = () => {
     <div className="levels-carousel__wrapper">
       <Carousel
         onChange={handleCarouselChange}
+        onClickItem={onGameStarted}
         selectedItem={selectedLevelIndex}
         emulateTouch={true}
         infiniteLoop={true}
