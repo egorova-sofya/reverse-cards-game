@@ -65,7 +65,16 @@
     max-width: 330px;
   }
 
+  .levels-carousel__content-wrapper {
+    min-height: 0;
+  }
+
   .levels-carousel__button {
     display: none;
+  }
+
+  .levels-carousel__level-title {
+    font-size: 32px;
+    align-self: flex-start;
   }
 }
