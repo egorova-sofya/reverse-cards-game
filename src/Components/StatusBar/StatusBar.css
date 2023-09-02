@@ -15,6 +15,7 @@
 
 .status-bar__logo {
   grid-column: 2;
+  text-align: center;
 }
 
 .status-bar__stats {

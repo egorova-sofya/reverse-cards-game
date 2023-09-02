@@ -13,7 +13,7 @@
   padding: 100px;
   border-radius: 30px;
   background-color: var(--black);
-  animation: appear 1.5s linear;
+  animation: appear 1.2s linear;
 }
 
 .info-window__wrapper::before {

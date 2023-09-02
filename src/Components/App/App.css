@@ -1,8 +1,9 @@
 .container {
-  max-height: 100vh;
+  height: 100vh;
   min-width: 360px;
-  max-width: 1440px;
   margin: auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .container::after,
@@ -30,6 +31,8 @@
 }
 
 .main__wrapper {
+  max-height: 100vh;
+
   padding: 0 36px;
   padding-top: 12px;
   position: relative;
@@ -53,6 +56,12 @@
 
 .main__content {
   position: relative;
+}
+
+@media screen and (max-height: 824px) {
+  .container {
+    overflow: auto;
+  }
 }
 
 @media screen and (max-width: 992px) {

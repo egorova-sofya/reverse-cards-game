@@ -7,28 +7,25 @@
   border-radius: var(--borderRadiusLarge);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 32px;
 }
 
 .start-screen__title {
   text-align: center;
   font-size: 40px;
   font-weight: 700;
-  margin: 0 20px;
-  margin-bottom: 52px;
 }
 
 .start-screen__button {
   max-width: 284px;
-  margin-top: 80px;
-  margin-bottom: 32px;
   padding: 12px 30px;
   font-size: 20px;
 }
 
 @media screen and (max-width: 576px) {
-  .start-screen__title {
-    margin: 20px;
+  .start-screen__wrapper {
+    padding: 20px;
   }
 }
