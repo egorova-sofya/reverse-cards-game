@@ -67,8 +67,8 @@ export const commonSlice = createSlice({
     },
 
     mixCards: (state) => {
-      // const newArr = [...state.finalCards];
-      // state.finalCards = randomArrayShuffle(newArr);
+      const newArr = [...state.finalCards];
+      state.finalCards = randomArrayShuffle(newArr);
     },
 
     choseCard: (state, action: PayloadAction<Card>) => {

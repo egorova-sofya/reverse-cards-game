@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { Level } from "../../../types";
 import Button from "../Button/Button";
 import "./StartScreen.css";
 import LevelsCarousel from "../LevelsCarousel/LevelsCarousel";

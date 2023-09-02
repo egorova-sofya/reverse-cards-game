@@ -123,5 +123,4 @@ const App = () => {
   );
 };
 
-// export default withSplashScreen(App);
-export default App;
+export default withSplashScreen(App);
