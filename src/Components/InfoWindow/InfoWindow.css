@@ -13,6 +13,7 @@
   padding: 100px;
   border-radius: 30px;
   background-color: var(--black);
+  animation: appear 1.5s linear;
 }
 
 .info-window__wrapper::before {
@@ -23,9 +24,20 @@
   transform: translateX(-50%);
   width: 210px;
   height: 210px;
-
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .info-window__win.info-window__wrapper::before {
